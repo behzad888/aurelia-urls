@@ -13,7 +13,7 @@
   },
   "license": "CC0-1.0",
   "author": "Behzad abbasi(behzad888)",
-  "main": "dist/commonjs/index.js",
+  "main": "dist/amd/index.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/behzad888/aurelia-urls"
