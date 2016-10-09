@@ -13,10 +13,10 @@ export let Config = class Config {
 
     getUrl(name) {
         if (!name) {
-            return this.defaultBaseUrl || null;
+            return this.defaultBaseUrl || '';
         }
 
-        return this.urls[name] || null;
+        return this.urls[name] || '';
     }
 
     setDefaultBaseUrl(baseUrl) {

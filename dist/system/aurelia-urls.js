@@ -40,10 +40,10 @@ System.register(['aurelia-dependency-injection'], function (_export, _context) {
 
                 Config.prototype.getUrl = function getUrl(name) {
                     if (!name) {
-                        return this.defaultBaseUrl || null;
+                        return this.defaultBaseUrl || '';
                     }
 
-                    return this.urls[name] || null;
+                    return this.urls[name] || '';
                 };
 
                 Config.prototype.setDefaultBaseUrl = function setDefaultBaseUrl(baseUrl) {
