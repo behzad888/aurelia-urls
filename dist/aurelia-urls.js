@@ -11,7 +11,7 @@ export class Config {
         return this;
     }
 
-    getUrl() {
+    getUrl(name) {
         if (!name) {
             return this.defaultBaseUrl || null;
         }

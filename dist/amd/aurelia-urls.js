@@ -22,7 +22,7 @@ define(['exports', 'aurelia-dependency-injection'], function (exports, _aureliaD
             return this;
         };
 
-        Config.prototype.getUrl = function getUrl() {
+        Config.prototype.getUrl = function getUrl(name) {
             if (!name) {
                 return this.defaultBaseUrl || null;
             }

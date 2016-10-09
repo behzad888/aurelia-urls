@@ -4,7 +4,7 @@ export declare class Config {
   defaultBaseUrl: any;
   urls: any;
   registerUrl(name?: any, url?: any): any;
-  getUrl(): any;
+  getUrl(name?: any): any;
   setDefaultBaseUrl(baseUrl?: any): any;
   urlExists(name?: any): any;
   configure(config?: any): any;

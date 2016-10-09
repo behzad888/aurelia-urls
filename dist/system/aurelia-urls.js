@@ -38,7 +38,7 @@ System.register(['aurelia-dependency-injection'], function (_export, _context) {
                     return this;
                 };
 
-                Config.prototype.getUrl = function getUrl() {
+                Config.prototype.getUrl = function getUrl(name) {
                     if (!name) {
                         return this.defaultBaseUrl || null;
                     }

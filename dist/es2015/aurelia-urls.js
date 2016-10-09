@@ -11,7 +11,7 @@ export let Config = class Config {
         return this;
     }
 
-    getUrl() {
+    getUrl(name) {
         if (!name) {
             return this.defaultBaseUrl || null;
         }
