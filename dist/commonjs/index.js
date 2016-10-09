@@ -3,19 +3,15 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.configure = configure;
 
-var _aureliaDependencyInjection = require('aurelia-dependency-injection');
+var _aureliaUrls = require('./aurelia-urls');
 
-var _config = require('./config');
-
-function configure(frameworkConfig, configOrConfigure) {
-  var config = frameworkConfig.container.get(_config.Config);
-
-  if (typeof configOrConfigure === 'function') {
-    configOrConfigure(config);
-    return;
-  }
-
-  config.configure(configOrConfigure);
-}
+Object.keys(_aureliaUrls).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _aureliaUrls[key];
+    }
+  });
+});

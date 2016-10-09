@@ -1,19 +1,17 @@
-define(["exports"], function (exports) {
-    "use strict";
+define(['exports', 'aurelia-dependency-injection'], function (exports, _aureliaDependencyInjection) {
+    'use strict';
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
+    exports.Config = undefined;
+    exports.configure = configure;
 
-    function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) {
-            throw new TypeError("Cannot call a class as a function");
-        }
-    }
+    
 
     var Config = exports.Config = function () {
         function Config() {
-            _classCallCheck(this, Config);
+            
 
             this.urls = {};
         }
@@ -61,4 +59,15 @@ define(["exports"], function (exports) {
 
         return Config;
     }();
+
+    function configure(frameworkConfig, configOrConfigure) {
+        var config = frameworkConfig.container.get(Config);
+
+        if (typeof configOrConfigure === 'function') {
+            configOrConfigure(config);
+            return;
+        }
+
+        config.configure(configOrConfigure);
+    }
 });

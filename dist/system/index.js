@@ -1,27 +1,17 @@
 'use strict';
 
-System.register(['aurelia-dependency-injection', './config'], function (_export, _context) {
+System.register(['./aurelia-urls'], function (_export, _context) {
   "use strict";
 
-  var Container, Config;
-  function configure(frameworkConfig, configOrConfigure) {
-    var config = frameworkConfig.container.get(Config);
-
-    if (typeof configOrConfigure === 'function') {
-      configOrConfigure(config);
-      return;
-    }
-
-    config.configure(configOrConfigure);
-  }
-
-  _export('configure', configure);
-
   return {
-    setters: [function (_aureliaDependencyInjection) {
-      Container = _aureliaDependencyInjection.Container;
-    }, function (_config) {
-      Config = _config.Config;
+    setters: [function (_aureliaUrls) {
+      var _exportObj = {};
+
+      for (var _key in _aureliaUrls) {
+        if (_key !== "default" && _key !== "__esModule") _exportObj[_key] = _aureliaUrls[_key];
+      }
+
+      _export(_exportObj);
     }],
     execute: function () {}
   };

@@ -1,14 +1,10 @@
-"use strict";
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+import { Container } from 'aurelia-dependency-injection';
 
-var Config = exports.Config = function () {
+export var Config = function () {
     function Config() {
-        _classCallCheck(this, Config);
+        
 
         this.urls = {};
     }
@@ -56,3 +52,13 @@ var Config = exports.Config = function () {
 
     return Config;
 }();
+export function configure(frameworkConfig, configOrConfigure) {
+    var config = frameworkConfig.container.get(Config);
+
+    if (typeof configOrConfigure === 'function') {
+        configOrConfigure(config);
+        return;
+    }
+
+    config.configure(configOrConfigure);
+}

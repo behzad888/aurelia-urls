@@ -1,3 +1,5 @@
+import { Container } from 'aurelia-dependency-injection';
+
 export let Config = class Config {
     constructor() {
         this.urls = {};
@@ -42,3 +44,13 @@ export let Config = class Config {
         return this;
     }
 };
+export function configure(frameworkConfig, configOrConfigure) {
+    let config = frameworkConfig.container.get(Config);
+
+    if (typeof configOrConfigure === 'function') {
+        configOrConfigure(config);
+        return;
+    }
+
+    config.configure(configOrConfigure);
+}

@@ -1,18 +1,16 @@
-define(['exports', 'aurelia-dependency-injection', './config'], function (exports, _aureliaDependencyInjection, _config) {
+define(['exports', './aurelia-urls'], function (exports, _aureliaUrls) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.configure = configure;
-  function configure(frameworkConfig, configOrConfigure) {
-    var config = frameworkConfig.container.get(_config.Config);
-
-    if (typeof configOrConfigure === 'function') {
-      configOrConfigure(config);
-      return;
-    }
-
-    config.configure(configOrConfigure);
-  }
+  Object.keys(_aureliaUrls).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+      enumerable: true,
+      get: function () {
+        return _aureliaUrls[key];
+      }
+    });
+  });
 });
